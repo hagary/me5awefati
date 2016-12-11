@@ -20,10 +20,20 @@
 # Compiled Static libraries
 *.lai
 *.la
+
+*.opensdf
+*.sdf
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
 *.a
 *.lib
+*.dll
 
 # Executables
 *.exe
 *.out
 *.app
+
+Debug/

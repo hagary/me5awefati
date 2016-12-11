@@ -1,4 +1,4 @@
-//
+
 //  kid.cpp
 //  Me5awefati
 //
@@ -7,3 +7,7 @@
 //
 
 #include "kid.hpp"
+
+Kid::Kid() : GameItem("kid") {
+	//this->scaleModel = DOOR_SCALE_MODEL;
+}

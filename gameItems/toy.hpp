@@ -9,9 +9,10 @@
 #ifndef toy_hpp
 #define toy_hpp
 
-#include <stdio.h>
-class toy{
-public:
-    void draw();
+#include "Model_3DS.h"
+#include "gameItem.hpp"
+
+class Toy : public GameItem{
+public: Toy();
 };
 #endif /* toy_hpp */

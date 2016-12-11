@@ -10,8 +10,9 @@
 #define room_hpp
 
 #include <stdio.h>
-class room{
+
+class Room {
 public:
-    void draw();
+
 };
 #endif /* room_hpp */

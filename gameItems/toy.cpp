@@ -7,3 +7,6 @@
 //
 
 #include "toy.hpp"
+Toy::Toy() : GameItem("toy") {
+	//this->scaleModel = DOOR_SCALE_MODEL;
+}

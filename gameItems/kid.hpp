@@ -10,8 +10,9 @@
 #define kid_hpp
 
 #include <stdio.h>
-class kid{
-public:
-    void draw();
+#include "gameItem.hpp"
+
+class Kid : public GameItem{
+	Kid();
 };
 #endif /* kid_hpp */

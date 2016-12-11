@@ -9,9 +9,9 @@
 #ifndef monster_hpp
 #define monster_hpp
 
-#include <stdio.h>
-class monster{
-public:
-    void draw();
+#include "gameItem.hpp"
+
+class Monster :public GameItem {
+public: Monster();
 };
 #endif /* monster_hpp */

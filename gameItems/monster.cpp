@@ -7,3 +7,6 @@
 //
 
 #include "monster.hpp"
+Monster::Monster() : GameItem("monster") {
+	//this->scaleModel = DOOR_SCALE_MODEL;
+}

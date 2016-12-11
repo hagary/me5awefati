@@ -1,4 +1,4 @@
-//
+#pragma once
 //  cell.hpp
 //  Me5awefati
 //
@@ -10,7 +10,15 @@
 #define cell_hpp
 
 #include <stdio.h>
+#include "gameItems/gameItem.hpp"
+
 class Cell{
-    
+	public: 
+		Cell();
+		GameItem gameItem;
+		int size;
+
+		void assignItem(GameItem);
+
 };
 #endif /* cell_hpp */

@@ -10,8 +10,9 @@
 #define door_hpp
 
 #include <stdio.h>
-class door{
-public:
-    void draw();
+#include "gameItem.hpp"
+
+class Door : public GameItem {
+	Door();
 };
 #endif /* door_hpp */

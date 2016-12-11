@@ -10,7 +10,13 @@
 #define floorGrid_hpp
 
 #include <stdio.h>
+#include "cell.hpp"
+#include "constants.h"
+
 class FloorGrid{
-    
+public:
+	FloorGrid();
+	Cell grid[numCells][numCells];
+	
 };
 #endif /* floorGrid_hpp */
