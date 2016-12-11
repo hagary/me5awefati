@@ -10,5 +10,8 @@
 #define kid_hpp
 
 #include <stdio.h>
-
+class kid{
+public:
+    void draw();
+};
 #endif /* kid_hpp */

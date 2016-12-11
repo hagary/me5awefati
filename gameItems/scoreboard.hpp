@@ -10,5 +10,8 @@
 #define scoreboard_hpp
 
 #include <stdio.h>
-
+class scoreboard{
+public:
+    void draw();
+};
 #endif /* scoreboard_hpp */

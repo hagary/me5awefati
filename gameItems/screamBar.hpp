@@ -10,5 +10,8 @@
 #define screamBar_hpp
 
 #include <stdio.h>
-
+class screamBar{
+public:
+    void draw();
+};
 #endif /* screamBar_hpp */
