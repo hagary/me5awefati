@@ -10,8 +10,8 @@
 #include <glut.h>
 
 int game_mode;
-#define SELECT_DOOR = 0;
-#define SCARE_ROOM  = 1;
+#define SELECT_DOOR 0;
+#define SCARE_ROOM  1;
 
 void initGame(){
     //initialize game objects
@@ -28,12 +28,12 @@ void anim(){
 void display(){
     
 }
-int main(int argc, const char * argv[]) {
-    initGame();
+void main(int argc, char** argv){
+	initGame();
     
     //GLUT methods
-    glutInit(&argc, argv);
-    glutInitWindowSize(windowWidth, windowHeight);
+	glutInit(&argc, argv);
+	glutInitWindowSize(windowWidth, windowHeight);
     glutInitWindowPosition(50, 50);
     glutCreateWindow("Me5awefati");
     glutFullScreen();
@@ -51,6 +51,5 @@ int main(int argc, const char * argv[]) {
     glEnable(GL_COLOR_MATERIAL);
     glShadeModel(GL_SMOOTH);
     glutMainLoop();
-    
-    return 0;
+
 }

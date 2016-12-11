@@ -13,5 +13,6 @@
 #include "gameItem.hpp"
 
 class Door : public GameItem {
+	Door();
 };
 #endif /* door_hpp */

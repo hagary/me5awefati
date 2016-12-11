@@ -9,10 +9,9 @@
 #ifndef monster_hpp
 #define monster_hpp
 
-#include <stdio.h>
 #include "gameItem.hpp"
 
 class Monster :public GameItem {
-public:
+public: Monster();
 };
 #endif /* monster_hpp */

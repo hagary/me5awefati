@@ -1,4 +1,4 @@
-//
+#pragma once
 //  cell.hpp
 //  Me5awefati
 //
@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include "gameItems/gameItem.hpp"
-#include "constants.h"
 
 class Cell{
 	public: 
@@ -20,5 +19,6 @@ class Cell{
 		int size;
 
 		void assignItem(GameItem);
+
 };
 #endif /* cell_hpp */

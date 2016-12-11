@@ -329,38 +329,38 @@ void LoadAssets()
 //=======================================================================
 // Main Function
 //=======================================================================
-void main(int argc, char** argv)
-{
-	glutInit(&argc, argv);
-
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-
-	glutInitWindowSize(WIDTH, HEIGHT);
-
-	glutInitWindowPosition(100, 150);
-
-	glutCreateWindow(title);
-
-	glutDisplayFunc(myDisplay);
-
-	glutKeyboardFunc(myKeyboard);
-
-	glutMotionFunc(myMotion);
-
-	glutMouseFunc(myMouse);
-
-	glutReshapeFunc(myReshape);
-
-	myInit();
-
-	LoadAssets();
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	glEnable(GL_NORMALIZE);
-	glEnable(GL_COLOR_MATERIAL);
-
-	glShadeModel(GL_SMOOTH);
-
-	glutMainLoop();
-}
+//void main(int argc, char** argv)
+//{
+//	glutInit(&argc, argv);
+//
+//	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+//
+//	glutInitWindowSize(WIDTH, HEIGHT);
+//
+//	glutInitWindowPosition(100, 150);
+//
+//	glutCreateWindow(title);
+//
+//	glutDisplayFunc(myDisplay);
+//
+//	glutKeyboardFunc(myKeyboard);
+//
+//	glutMotionFunc(myMotion);
+//
+//	glutMouseFunc(myMouse);
+//
+//	glutReshapeFunc(myReshape);
+//
+//	myInit();
+//
+//	LoadAssets();
+//	glEnable(GL_DEPTH_TEST);
+//	glEnable(GL_LIGHTING);
+//	glEnable(GL_LIGHT0);
+//	glEnable(GL_NORMALIZE);
+//	glEnable(GL_COLOR_MATERIAL);
+//
+//	glShadeModel(GL_SMOOTH);
+//
+//	glutMainLoop();
+//}
