@@ -10,5 +10,7 @@
 #define cell_hpp
 
 #include <stdio.h>
-
+class Cell{
+    
+};
 #endif /* cell_hpp */

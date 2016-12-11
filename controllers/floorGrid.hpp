@@ -10,5 +10,7 @@
 #define floorGrid_hpp
 
 #include <stdio.h>
-
+class FloorGrid{
+    
+};
 #endif /* floorGrid_hpp */

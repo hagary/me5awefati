@@ -10,5 +10,8 @@
 #define monster_hpp
 
 #include <stdio.h>
-
+class monster{
+public:
+    void draw();
+};
 #endif /* monster_hpp */

@@ -10,5 +10,8 @@
 #define door_hpp
 
 #include <stdio.h>
-
+class door{
+public:
+    void draw();
+};
 #endif /* door_hpp */

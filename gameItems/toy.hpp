@@ -10,5 +10,8 @@
 #define toy_hpp
 
 #include <stdio.h>
-
+class toy{
+public:
+    void draw();
+};
 #endif /* toy_hpp */

@@ -10,5 +10,8 @@
 #define room_hpp
 
 #include <stdio.h>
-
+class room{
+public:
+    void draw();
+};
 #endif /* room_hpp */
