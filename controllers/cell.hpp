@@ -10,5 +10,15 @@
 #define cell_hpp
 
 #include <stdio.h>
+#include "gameItems/gameItem.hpp"
+#include "constants.h"
 
+class Cell{
+	public: 
+		Cell();
+		GameItem gameItem;
+		int size;
+
+		void assignItem(GameItem);
+};
 #endif /* cell_hpp */

@@ -7,3 +7,6 @@
 //
 
 #include "floorGrid.hpp"
+FloorGrid::FloorGrid() {
+
+}

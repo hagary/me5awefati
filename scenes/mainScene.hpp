@@ -10,5 +10,8 @@
 #define mainScene_hpp
 
 #include <stdio.h>
-
+class mainScene{
+public:
+    void draw();
+};
 #endif /* mainScene_hpp */

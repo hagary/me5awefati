@@ -10,5 +10,8 @@
 #define door_hpp
 
 #include <stdio.h>
+#include "gameItem.hpp"
 
+class Door : public GameItem {
+};
 #endif /* door_hpp */

@@ -10,5 +10,10 @@
 #define toy_hpp
 
 #include <stdio.h>
+#include "Model_3DS.h"
+#include "gameItem.hpp"
 
+class Toy : public GameItem{
+
+};
 #endif /* toy_hpp */

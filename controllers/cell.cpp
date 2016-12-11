@@ -7,3 +7,11 @@
 //
 
 #include "cell.hpp"
+
+Cell::Cell(){
+	this->size = cellSize;
+}
+
+void Cell::assignItem(GameItem g) {
+	this->gameItem = g;
+}

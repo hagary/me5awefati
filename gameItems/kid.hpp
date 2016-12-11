@@ -10,5 +10,9 @@
 #define kid_hpp
 
 #include <stdio.h>
+#include "gameItem.hpp"
 
+class Kid : public GameItem{
+	Kid();
+};
 #endif /* kid_hpp */

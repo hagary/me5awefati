@@ -10,5 +10,8 @@
 #define camera_hpp
 
 #include <stdio.h>
-
+class Camera{
+public:
+    void setUp();
+};
 #endif /* camera_hpp */

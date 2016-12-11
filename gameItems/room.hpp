@@ -11,4 +11,7 @@
 
 #include <stdio.h>
 
+class Room {
+public:
+};
 #endif /* room_hpp */

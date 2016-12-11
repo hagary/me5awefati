@@ -10,5 +10,8 @@
 #define lights_hpp
 
 #include <stdio.h>
-
+class Lights{
+public:
+    void setUp();
+};
 #endif /* lights_hpp */

@@ -10,5 +10,8 @@
 #define scareScene_hpp
 
 #include <stdio.h>
-
+class scareScene{
+public:
+    void draw();
+};
 #endif /* scareScene_hpp */
