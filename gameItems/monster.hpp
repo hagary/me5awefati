@@ -17,6 +17,7 @@ public: Monster();
 		void moveL();
 		void moveF();
 		void moveB();
+		void reset();
 private: int step;
 		 Vector initP;
 		 int dir;

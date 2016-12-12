@@ -44,3 +44,8 @@ void Monster::moveR() {
 	dir = -90;
 	rot = -53 + dir;
 }
+
+void Monster::reset() {
+	centerPoint = initP;
+	rot = -53;
+}

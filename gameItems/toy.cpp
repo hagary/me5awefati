@@ -7,12 +7,10 @@
 //
 
 #include "toy.hpp"
-Toy::Toy() : GameItem("toy1/toy1") {
+Toy::Toy(std::string path, Vector center) : GameItem(path) {
 	size = 5;
 	scaleModel = 0.005;
 	rot = -90;
 
-	centerPoint.x = -30;
-	centerPoint.y = -50;
-	centerPoint.z = roomSize - 40;
+	centerPoint = center;
 }
