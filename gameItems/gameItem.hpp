@@ -20,6 +20,8 @@ public:
 	double scaleModel; // Fitting to Unit Cube
 	double size; // Item Scaling
 	double rot; // Item Rotation around Y
+	double rotX; //rotation around x-axis
+	double rotZ; //rotation around z-axis
 	void draw();
 
 };

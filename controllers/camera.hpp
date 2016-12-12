@@ -19,7 +19,8 @@ public:
 	Vector eye;
 	Vector dest;
 	Vector up;
-
+	Vector initDest;
+	double angle;
     void setUp();
 };
 #endif /* camera_hpp */

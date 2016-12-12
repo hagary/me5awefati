@@ -8,6 +8,13 @@
 
 #include "kid.hpp"
 
-Kid::Kid() : GameItem("kid") {
-	//this->scaleModel = DOOR_SCALE_MODEL;
+Kid::Kid() : GameItem("mostafa/boy") {
+	size = 1;
+	scaleModel = 0.2;
+	rot = 180;
+	rotX = -90;
+	rotZ = -20;
+	centerPoint.x = -25;
+	centerPoint.y = -41;
+	centerPoint.z = roomSize - 35;
 }

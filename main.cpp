@@ -14,6 +14,8 @@ ScareScene scareScene;
 Camera cam;
 Lights light;
 
+Vector oldMouse;
+
 int game_mode;
 #define SELECT_DOOR 0;
 #define SCARE_ROOM  1;
@@ -42,7 +44,20 @@ void spe(int k, int x,int y){
 	glutPostRedisplay();
 }
 void passM(int mouseX,int mouseY){
+	mouseX = mouseX - windowWidth/2;
+	mouseY = windowHeight - mouseY + windowHeight / 2;
+	int changeX = mouseX - oldMouse.x;
+	int changeY = mouseY - oldMouse.y;
+
+	cam.dest.x -= changeX * 0.15;
+	cam.dest.y += changeY * 0.008;
+
+	oldMouse.x = mouseX;
+	oldMouse.y = mouseY;
+
+	glutPostRedisplay();
 }
+
 void anim(){
 	scareScene.target.grow();
 	glutPostRedisplay();
@@ -55,29 +70,6 @@ void display(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	scareScene.draw();
 	glFlush();
-}
-
-GLuint loadTexture() {
-
-	GLuint tex_2d = SOIL_load_OGL_texture
-		(
-			"main-wall.jpg",
-			SOIL_LOAD_AUTO,
-			SOIL_CREATE_NEW_ID,
-			SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-			);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-	/* check for an error during the load process */
-	if (0 == tex_2d)
-	{
-		printf("SOIL loading error: '%s'\n", SOIL_last_result());
-	}
-	return tex_2d;
 }
 
 void main(int argc, char** argv){

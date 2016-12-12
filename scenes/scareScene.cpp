@@ -22,6 +22,7 @@ void ScareScene::loadImages() {
 void ScareScene::draw() {
 	room.draw(roomSize);
 	bed.draw();
+	kid.draw();
 	toy.draw();
 	wardrobe.draw();
 	monster.draw();

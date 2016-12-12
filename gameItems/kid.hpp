@@ -12,6 +12,6 @@
 #include "gameItem.hpp"
 
 class Kid : public GameItem{
-	Kid();
+public: Kid();
 };
 #endif /* kid_hpp */
