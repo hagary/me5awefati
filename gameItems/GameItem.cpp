@@ -1,19 +1,25 @@
 #include "gameItem.hpp"
+#include "controllers\room.hpp"
 
-GameItem::GameItem(){}
-
-GameItem::GameItem(std::string name)
+GameItem::GameItem(string name)
 {
-	//model.Load("assets/models/"+ name.c_str +".3ds");
+	string path = "assets/models/" + name + ".3ds";
+	model.Load((char*)path.c_str());
+
 }
 
 void GameItem::draw()
 {
 	glPushMatrix();
-	glScaled(size, size, size);
+	glTranslatef(centerPoint.x, centerPoint.y, centerPoint.z);
+	glScalef(size, size, size);
+
+	//Room testCube;
+	//testCube.draw(1);
 
 	glPushMatrix();
-	glScaled(scaleModel, scaleModel, scaleModel);
+	glRotatef(rot, 0, 1, 0);
+	glScalef(scaleModel, scaleModel, scaleModel);
 	model.Draw();
 	glPopMatrix();
 

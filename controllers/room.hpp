@@ -10,6 +10,7 @@
 #define room_hpp
 
 #include <glut.h>
+#include "constants.h"
 
 class Room {
 public:
