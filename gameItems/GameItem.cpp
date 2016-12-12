@@ -10,10 +10,8 @@ GameItem::GameItem(string name)
 
 void GameItem::draw()
 {
-
 	glPushMatrix();
-	glTranslatef(0, -50, roomSize - 30);
-
+	glTranslatef(centerPoint.x, centerPoint.y, centerPoint.z);
 	glScalef(size, size, size);
 
 	//Room testCube;
