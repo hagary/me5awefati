@@ -3,11 +3,12 @@
 
 
 Wardrobe::Wardrobe() :GameItem("wardrobe/Wardrobe"){
-	size = 80;
+	size = 70;
 	scaleModel = 0.002;
 	rot = -90;
-	centerPoint.x = 40;
+
+	centerPoint.x = 45;
 	centerPoint.y = -50;
-	centerPoint.z = roomSize - 40;
+	centerPoint.z = roomSize - 30;
 }
 

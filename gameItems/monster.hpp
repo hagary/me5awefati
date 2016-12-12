@@ -13,5 +13,12 @@
 
 class Monster :public GameItem {
 public: Monster();
+		void moveR();
+		void moveL();
+		void moveF();
+		void moveB();
+private: int step;
+		 Vector initP;
+		 int dir;
 };
 #endif /* monster_hpp */
