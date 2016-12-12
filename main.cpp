@@ -41,6 +41,11 @@ void spe(int k, int x,int y){
 			scareScene.monster.moveB();
 			break;
 	}
+
+	if (scareScene.isCollision())
+	{
+		scareScene.monster.reset();
+	}
 	glutPostRedisplay();
 }
 void passM(int mouseX,int mouseY){

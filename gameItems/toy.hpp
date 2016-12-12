@@ -13,6 +13,7 @@
 #include "gameItem.hpp"
 
 class Toy : public GameItem{
-public: Toy();
+public: Toy() {};
+		Toy(std::string, Vector);
 };
 #endif /* toy_hpp */

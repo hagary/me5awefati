@@ -25,10 +25,12 @@ public:
 	Kid kid;
 	Room room;
 	Bed bed;
-	Toy toy;
+	Toy toys[NUM_TOYS];
 	Wardrobe wardrobe;
 	Target target;
+
 	void loadImages();
     void draw();
+	bool isCollision();
 };
 #endif /* scareScene_hpp */
