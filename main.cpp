@@ -7,9 +7,12 @@
 //
 #include "scenes\scareScene.hpp"
 #include "controllers\camera.hpp"
+#include "controllers\lights.hpp"
 
+// Game Variables
 ScareScene scareScene;
 Camera cam;
+Lights light;
 
 int game_mode;
 #define SELECT_DOOR 0;
@@ -29,12 +32,11 @@ void anim(){
 }
 void display(){
 
-	glPushMatrix();
 	cam.setUp();
+	light.setUp();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	scareScene.draw();
-	glPopMatrix();
 
 	glFlush();
 }

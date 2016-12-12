@@ -21,4 +21,8 @@ const double aspectRatio = (double)windowWidth/ (double)windowHeight;
 const double zNear = 0.001;
 const double zFar = roomSize + 50;
 
+
+// Light
+const double ambient = 0.04;
+
 #endif

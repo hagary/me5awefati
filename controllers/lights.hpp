@@ -9,7 +9,9 @@
 #ifndef lights_hpp
 #define lights_hpp
 
-#include <stdio.h>
+#include <glut.h>
+#include "constants.h"
+
 class Lights{
 public:
     void setUp();
