@@ -7,3 +7,17 @@
 //
 
 #include "scareScene.hpp"
+
+ScareScene::ScareScene() {
+
+}
+
+void ScareScene::loadImages() {
+	room.ceilID = loadTexture("ceiling.jpg");
+	room.wallID = loadTexture("boy-wall.jpg");
+	room.floorID = loadTexture("room-floor.jpg");
+}
+
+void ScareScene::draw() {
+	room.draw(roomSize);
+}

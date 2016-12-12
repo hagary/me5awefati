@@ -1,8 +1,6 @@
-#pragma once
-
 #include "Model_3DS.h"
+#include "GLTexture.h"
 #include "constants.h"
-
 #include <string>
 
 class GameItem

@@ -9,7 +9,6 @@
 #ifndef cell_hpp
 #define cell_hpp
 
-#include <stdio.h>
 #include "gameItems/gameItem.hpp"
 
 class Cell{
