@@ -9,7 +9,7 @@
 #include "camera.hpp"
 
 Camera::Camera() {
-	eye = Vector(0, 0, 5);
+	eye = Vector(0, 0, 1);
 	dest = Vector(0, 0, 10);
 	up = Vector(0, 1, 0);
 }

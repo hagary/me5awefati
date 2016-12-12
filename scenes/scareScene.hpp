@@ -11,6 +11,7 @@
 
 #include "Texture.hpp"
 #include "gameItems\room.hpp"
+#include "constants.h"
 
 class ScareScene{
 public:

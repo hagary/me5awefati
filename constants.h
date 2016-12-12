@@ -9,7 +9,7 @@
 #define windowHeight 720
 
 //Room
-#define roomSize 100
+#define roomSize 1000
 
 // Grid
 #define cellSize 20
@@ -17,8 +17,8 @@
 
 //Camera
 const double fovy = 90;
-const double aspectRatio = (double)windowWidth / (double)windowHeight;
+const double aspectRatio = ((double)windowWidth - 200)/ (double)windowHeight;
 const double zNear = 0.001;
-const double zFar = 500;
+const double zFar = roomSize + 50;
 
 #endif

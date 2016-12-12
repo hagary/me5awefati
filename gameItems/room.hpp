@@ -10,7 +10,6 @@
 #define room_hpp
 
 #include <glut.h>
-#include "constants.h"
 
 class Room {
 public:
@@ -19,9 +18,9 @@ public:
 	GLuint wallID;
 	GLuint floorID;
 
-	void draw();
+	void draw(double size);
 };
 
-void drawWall(float, int, bool, bool, bool, bool, bool, bool);
+void drawWall(int, bool, bool, bool, bool, bool, bool);
 
 #endif /* room_hpp */
