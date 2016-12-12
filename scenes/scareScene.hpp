@@ -13,6 +13,7 @@
 #include "controllers\room.hpp"
 #include "gameItems\Bed.hpp"
 #include "gameItems\Wardrobe.hpp"
+#include "gameItems\toy.hpp"
 #include "constants.h"
 
 class ScareScene{
@@ -20,6 +21,7 @@ public:
 	ScareScene();
 	Room room;
 	Bed bed;
+	Toy toy;
 	Wardrobe wardrobe;
 	void loadImages();
     void draw();
