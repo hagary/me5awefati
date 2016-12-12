@@ -9,7 +9,6 @@
 #ifndef screamBar_hpp
 #define screamBar_hpp
 
-#include <stdio.h>
 class screamBar{
 public:
     void draw();

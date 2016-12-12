@@ -9,7 +9,6 @@
 #ifndef scoreboard_hpp
 #define scoreboard_hpp
 
-#include <stdio.h>
 class scoreboard{
 public:
     void draw();

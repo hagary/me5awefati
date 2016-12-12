@@ -9,10 +9,19 @@
 #ifndef room_hpp
 #define room_hpp
 
-#include <stdio.h>
+#include <glut.h>
+#include "constants.h"
 
 class Room {
 public:
+	Room(){};
+	GLuint ceilID;
+	GLuint wallID;
+	GLuint floorID;
 
+	void draw();
 };
+
+void drawWall(float, int, bool, bool, bool, bool, bool, bool);
+
 #endif /* room_hpp */

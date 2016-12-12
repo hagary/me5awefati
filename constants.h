@@ -2,12 +2,23 @@
 //  Me5awefati
 
 #pragma once
-const int windowWidth  = 1024;
-const int windowHeight = 720;
+#ifndef CONSTANTS
+#define CONSTANTS
+
+#define windowWidth 1024
+#define windowHeight 720
 
 //Room
-const int roomSize = 100;
+#define roomSize 100
 
 // Grid
-const int cellSize = 20;
-const int numCells = roomSize / cellSize;
+#define cellSize 20
+#define numCells (roomSize / cellSize)
+
+//Camera
+const double fovy = 90;
+const double aspectRatio = (double)windowWidth / (double)windowHeight;
+const double zNear = 0.001;
+const double zFar = 500;
+
+#endif

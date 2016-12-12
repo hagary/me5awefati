@@ -9,9 +9,14 @@
 #ifndef scareScene_hpp
 #define scareScene_hpp
 
-#include <stdio.h>
-class scareScene{
+#include "Texture.hpp"
+#include "gameItems\room.hpp"
+
+class ScareScene{
 public:
+	ScareScene();
+	Room room;
+	void loadImages();
     void draw();
 };
 #endif /* scareScene_hpp */

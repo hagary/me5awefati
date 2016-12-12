@@ -6,12 +6,20 @@
 //  Copyright © 2016 Hagar Yasser Omar. All rights reserved.
 //
 
+#pragma once
 #ifndef camera_hpp
 #define camera_hpp
 
-#include <stdio.h>
+#include "Vector.h"
+#include "constants.h"
+
 class Camera{
 public:
+	Camera();
+	Vector eye;
+	Vector dest;
+	Vector up;
+
     void setUp();
 };
 #endif /* camera_hpp */
