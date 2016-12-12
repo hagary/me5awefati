@@ -13,7 +13,7 @@ void Room::draw(double size) {
 	
 	glPushMatrix();
 	glTranslatef(-size / 2, -size / 2, 0);
-	glScalef(size, size, size);
+	glScalef(size, size/aspectRatio, size);
 
 	// Front
 	glBindTexture(GL_TEXTURE_2D, wallID);

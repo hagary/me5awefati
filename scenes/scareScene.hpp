@@ -10,13 +10,15 @@
 #define scareScene_hpp
 
 #include "Texture.hpp"
-#include "gameItems\room.hpp"
+#include "controllers\room.hpp"
+#include "gameItems\Bed.hpp"
 #include "constants.h"
 
 class ScareScene{
 public:
 	ScareScene();
 	Room room;
+	Bed bed;
 	void loadImages();
     void draw();
 };

@@ -3,15 +3,18 @@
 #include "constants.h"
 #include <string>
 
+using namespace std;
+
 class GameItem
 {
 public:
-	GameItem();
-	GameItem(std::string);
+	GameItem() {};
+	GameItem(string);
+	
 	Model_3DS model;
-	double scaleModel; // Fitting to Cube
-	double size; // Cube Scaling
-
+	double scaleModel; // Fitting to Unit Cube
+	double size; // Item Scaling
+	double rot; // Item Rotation around Y
 	void draw();
 
 };

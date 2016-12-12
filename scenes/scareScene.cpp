@@ -20,4 +20,5 @@ void ScareScene::loadImages() {
 
 void ScareScene::draw() {
 	room.draw(roomSize);
+	bed.draw();
 }
