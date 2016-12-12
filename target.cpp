@@ -1,8 +1,8 @@
 #include "Target.hpp"
 
-Target::Target() {
+Target::Target(){
 	size = min = 0.1;
-	max = 0.2;
+	max = 0.15;
 	growFactor = 0.0006;
 	growing = true;
 }
@@ -26,8 +26,10 @@ void Target::draw()
 	glScaled(size, size, size);
 	glRotated(90, 1, 0, 0);
 	glColor3d(1, 0, 0);
+	//glBindTexture(GL_TEXTURE_2D, redID);
 	gluDisk(disk, 0, 50, 50, 50);
 	glPopMatrix();
+	glColor3f(1.0, 1.0, 1.0);
 }
 void Target::grow() {
 	if (growing)

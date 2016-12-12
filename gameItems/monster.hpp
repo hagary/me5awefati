@@ -19,5 +19,6 @@ public: Monster();
 		void moveB();
 private: int step;
 		 Vector initP;
+		 int dir;
 };
 #endif /* monster_hpp */

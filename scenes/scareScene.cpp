@@ -16,6 +16,7 @@ void ScareScene::loadImages() {
 	room.ceilID = loadTexture("boy-wall.jpg");
 	room.wallID = loadTexture("boy-wall.jpg");
 	room.floorID = loadTexture("room-floor.jpg");
+	target.redID = loadTexture("red.jpg");
 }
 
 void ScareScene::draw() {
