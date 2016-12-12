@@ -17,7 +17,7 @@ void Lights::setUp() {
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, l0Diffuse);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, l0Ambient);
 	glLightfv(GL_LIGHT0, GL_POSITION, l0Position);
-	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 30);
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60);
 	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 1.0f);
 	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, l0Direction);
 }

@@ -9,8 +9,8 @@
 #include "camera.hpp"
 
 Camera::Camera() {
-	eye = Vector(0, -30, 1);
-	dest = Vector(0, -30, 10);
+	eye = Vector(0, -roomSize/3.5, 0);
+	dest = Vector(0, -roomSize/3.5, roomSize - roomSize / 10);
 	up = Vector(0, 1, 0);
 }
 

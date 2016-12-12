@@ -14,15 +14,18 @@
 #include "gameItems\Bed.hpp"
 #include "gameItems\Wardrobe.hpp"
 #include "gameItems\toy.hpp"
+#include "gameItems\monster.hpp"
+#include "Target.hpp"
 #include "constants.h"
-
 class ScareScene{
 public:
 	ScareScene();
+	Monster monster;
 	Room room;
 	Bed bed;
 	Toy toy;
 	Wardrobe wardrobe;
+	Target target;
 	void loadImages();
     void draw();
 };

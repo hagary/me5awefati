@@ -12,7 +12,7 @@
 #define roomSize 100
 
 // Grid
-#define cellSize 20
+#define cellSize 1
 #define numCells (roomSize / cellSize)
 
 //Camera
@@ -23,7 +23,7 @@ const double zFar = roomSize + 50;
 
 
 // Light
-const double ambient = 0.04;
+const double ambient = 0.2;
 
 // Toys
 #define NUM_TOYS 3
