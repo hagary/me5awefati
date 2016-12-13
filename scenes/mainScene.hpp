@@ -23,5 +23,6 @@ public:
 	GLUquadric* holder;
     void draw();
 	void drawHolder();
+	void loadImages();
 };
 #endif /* mainScene_hpp */

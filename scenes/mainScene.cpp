@@ -20,7 +20,18 @@ void mainScene::drawHolder() {
 	glPopMatrix();
 }
 
+void mainScene::loadImages() {
+	firstRoom.floorID = loadTexture("main-floor.jpg");
+	firstRoom.wallID = loadTexture("main-wall.jpg");
+	firstRoom.ceilID = loadTexture("main-wall.jpg");
+
+	door1.texID = loadTexture("door-blue.png");
+	door2.texID = loadTexture("door-pink.png");
+	door3.texID = loadTexture("door-grey.png");
+}
+
 void mainScene::draw() {
+
 	GLfloat l0Diffuse[] = { 0.5, 0.5, 0.5 };
 	GLfloat l0Ambient[] = { ambient_mainScene , ambient_mainScene , ambient_mainScene, 1.0f };
 	GLfloat l0Position[] = { 0, -10, 5 , 1 };
@@ -44,15 +55,9 @@ void mainScene::draw() {
 	//glLightf(GL_LIGHT2, GL_SPOT_EXPONENT, 1.0f);
 	//glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, l2Direction);
 	
-	firstRoom.floorID = loadTexture("main-floor.jpg");
-	firstRoom.wallID = loadTexture("main-wall.jpg");
-	firstRoom.ceilID = loadTexture("main-wall.jpg");
 	firstRoom.draw(roomSize);
 
-	door1.texID = loadTexture("door-blue.png");
 	door1.draw(15.0);
-	door2.texID = loadTexture("door-pink.png");
 	door2.draw(3.0);
-	door3.texID = loadTexture("door-grey.png");
 	door3.draw(-10.0);
 }
