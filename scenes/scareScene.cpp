@@ -10,9 +10,9 @@
 
 ScareScene::ScareScene() {
 
-	toys[0] = Toy("toy1/toy1", Vector(10, -50, roomSize - 40));
-	toys[1] = Toy("toy2/Robot", Vector(0, -50, roomSize - 20));
-	toys[2] = Toy("toy2/Robot", Vector(-10, -50, roomSize - 70));
+	//toys[0] = Toy("toy1/toy1", Vector(10, -50, roomSize - 40));
+	//toys[1] = Toy("toy2/Robot", Vector(0, -50, roomSize - 20));
+	//toys[2] = Toy("toy2/Robot", Vector(-10, -50, roomSize - 70));
 
 }
 
@@ -37,7 +37,7 @@ void ScareScene::draw() {
 	target.draw();
 }
 
-bool ScareScene::isCollision() {
+bool ScareScene::isToyCollision() {
 
 	for (size_t i = 0; i < NUM_TOYS; i++)
 	{
@@ -52,6 +52,22 @@ bool ScareScene::isCollision() {
 			&& monster.centerPoint.z <= upperBoundZ)
 			return true;
 	}
+
+	return false;
+}
+
+bool ScareScene::isTargetCollision() {
+
+	int lowerBoundX = target.centerPoint.x - target.size;
+	int upperBoundX = target.centerPoint.x + target.size;
+	int lowerBoundZ = target.centerPoint.z - target.size;
+	int upperBoundZ = target.centerPoint.z + target.size;
+
+	if (monster.centerPoint.x >= lowerBoundX
+		&& monster.centerPoint.x <= upperBoundX
+		&& monster.centerPoint.z >= lowerBoundZ
+		&& monster.centerPoint.z <= upperBoundZ)
+		return true;
 
 	return false;
 }

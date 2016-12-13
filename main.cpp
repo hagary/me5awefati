@@ -24,7 +24,6 @@ Lights light;
 Vector oldMouse;
 ISoundEngine* soundEngine = createIrrKlangDevice();
 
-
 // Timer
 long timeSinceStart; //millisecs
 int currMin;
@@ -33,13 +32,13 @@ int durMins = 2;
 Vector pos;
 bool isTimeUp;
 
-
 void initTimer() {
 	durMins = durationMins;
 	currMin = durMins;
 	currSec = 0;
 	pos.x = -30; pos.y = roomSize / 2 - 10; pos.z = -roomSize / 2 + 10;
 }
+
 void decTime(int value) {
 	if (currSec == 0 && currMin == 0)
 	{
@@ -122,11 +121,18 @@ void spe(int k, int x,int y){
 			break;
 	}
 
-	if (scareScene.isCollision())
+	if (scareScene.isToyCollision())
 	{
 		scareScene.monster.reset();
 		playSound("7alet-taware2", false);
+
 	}
+	else if (scareScene.isTargetCollision())
+	{
+		soundEngine->stopAllSounds();
+		playSound("sree5", false);
+	}
+
 	glutPostRedisplay();
 }
 void passM(int mouseX,int mouseY){
@@ -165,7 +171,7 @@ void anim(){
 		if (isTimeUp)
 		{
 			isTimeUp = false;
-		}
+		} 
 		scareScene.target.grow();
 	}
 	glutPostRedisplay();

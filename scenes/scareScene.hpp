@@ -32,6 +32,7 @@ public:
 
 	void loadImages();
     void draw();
-	bool isCollision();
+	bool isToyCollision();
+	bool isTargetCollision();
 };
 #endif /* scareScene_hpp */

@@ -5,6 +5,8 @@ Target::Target(){
 	max = 0.15;
 	growFactor = 0.0006;
 	growing = true;
+
+	centerPoint = Vector(0, -49.7, roomSize - 10);
 }
 
 void Target::draw()
@@ -22,7 +24,8 @@ void Target::draw()
 	GLUquadricObj *disk;
 	disk = gluNewQuadric();
 	glPushMatrix();
-	glTranslated(0, -49.7, roomSize - 10);
+	glTranslated(centerPoint.x, centerPoint.y, centerPoint.z);
+
 	glScaled(size, size, size);
 	glRotated(90, 1, 0, 0);
 	glColor3d(1, 0, 0);
