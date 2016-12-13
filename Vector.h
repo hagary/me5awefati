@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef VEC
+#define VEC
 #include <glut.h>
 
 class Vector
@@ -19,3 +20,4 @@ public:
 		z += value;
 	}
 };
+#endif
