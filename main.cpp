@@ -24,7 +24,6 @@ Lights light;
 Vector oldMouse;
 ISoundEngine* soundEngine = createIrrKlangDevice();
 
-
 // Timer
 long timeSinceStart; //millisecs
 int currMin;
@@ -37,6 +36,7 @@ bool isTimeUp;
 int score;
 
 int game_mode;
+bool gameEnded;
 #define SELECT_DOOR 0
 #define SCARE_ROOM  1
 #define GAME_OVER 2
@@ -49,6 +49,7 @@ void initTimer() {
 	timeSinceStart = glutGet(GLUT_ELAPSED_TIME);
 	glutTimerFunc(1000, decTime, 0);
 }
+
 void decTime(int value) {
 	if (currSec == 0 && currMin == 0)
 	{
@@ -124,6 +125,8 @@ void key(unsigned char k, int x,int y){
 			game_mode = SCARE_ROOM;
 			initTimer();
 			playSound("tefl-adamy", false, 1);
+			gameEnded = false;
+			scareScene.kid.reset();
 			glutPostRedisplay();
 		}
 		if (k == '2') {
@@ -131,6 +134,8 @@ void key(unsigned char k, int x,int y){
 			game_mode = SCARE_ROOM;
 			initTimer();
 			playSound("tefl-adamy", false, 1);
+			gameEnded = false;
+			scareScene.kid.reset();
 			glutPostRedisplay();
 		}
 		if (k == '3') {
@@ -138,12 +143,20 @@ void key(unsigned char k, int x,int y){
 			game_mode = SCARE_ROOM;
 			initTimer();
 			playSound("tefl-adamy", false, 1);
+			gameEnded = false;
+			scareScene.kid.reset();
 			glutPostRedisplay();
 		}
 
 	}
 }
+
+void endGame(int val) {
+	game_mode = 0;
+}
 void spe(int k, int x,int y){
+
+	Vector currPoint = scareScene.monster.centerPoint;
 	switch (k){
 		case GLUT_KEY_RIGHT :
 			scareScene.monster.moveR();
@@ -159,13 +172,27 @@ void spe(int k, int x,int y){
 			break;
 	}
 
-	if (scareScene.isCollision())
+	if (scareScene.isToyCollision())
 	{
 		scareScene.monster.reset();
 		playSound("7alet-taware2", false, 1);
 		score -= 100;
 		//TODO if score <=0
 	}
+	else if (scareScene.isTargetCollision() && !gameEnded)
+	{
+		playSound("sree5", false, 1);
+		scareScene.kid.scareKid();
+		gameEnded = true;
+		glutTimerFunc(6000, endGame,0);
+
+	}
+	//else if (scareScene.isObjectCollision()) {
+
+	//	// Raga3o tany
+	//	scareScene.monster.centerPoint = currPoint;
+	//};
+
 	glutPostRedisplay();
 }
 void passM(int mouseX,int mouseY){
@@ -191,7 +218,7 @@ void anim(){
 		if (isTimeUp)
 		{
 			isTimeUp = false;
-		}
+		} 
 		scareScene.target.grow();
 	}
 	glutPostRedisplay();

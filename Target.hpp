@@ -9,10 +9,12 @@ public:
 	void draw();
 	void grow();
 	int redID;
+	Vector centerPoint;
+	double size;
+
 private:
 	double min;
 	double max;
-	double size;
 	double growFactor;
 	bool growing;
 };

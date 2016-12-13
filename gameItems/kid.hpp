@@ -13,5 +13,8 @@
 
 class Kid : public GameItem{
 public: Kid();
+		
+		void scareKid();
+		void reset();
 };
 #endif /* kid_hpp */

@@ -18,3 +18,14 @@ Kid::Kid() : GameItem("mostafa/boy") {
 	centerPoint.y = -41;
 	centerPoint.z = roomSize - 35;
 }
+
+void Kid::reset() {
+	rotX = -90;
+	centerPoint.y = -41;
+
+}
+void Kid::scareKid() {
+	rotX = 0;
+	centerPoint.y = -55;
+
+}
