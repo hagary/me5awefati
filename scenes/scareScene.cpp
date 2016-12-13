@@ -12,7 +12,8 @@ ScareScene::ScareScene() {
 
 	toys[0] = Toy("toy1/toy1", Vector(10, -50, roomSize - 40));
 	toys[1] = Toy("toy2/Robot", Vector(0, -50, roomSize - 20));
-	toys[2] = Toy("toy2/Robot", Vector(-10, -50, roomSize - 50));
+	toys[2] = Toy("toy2/Robot", Vector(-10, -50, roomSize - 15));
+	toys[3] = Toy("toy1/toy1", Vector(20, -50, roomSize - 30));
 
 }
 
