@@ -18,6 +18,7 @@
 #include "gameItems\kid.hpp"
 #include "Target.hpp"
 #include "constants.h"
+
 class ScareScene{
 public:
 	ScareScene();
