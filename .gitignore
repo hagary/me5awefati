@@ -37,3 +37,6 @@
 *.app
 
 Debug/
+.vs/
+Me5awefaty.VC.opendb
+OpenGLMeshLoader.vcxproj.user
