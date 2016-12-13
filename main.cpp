@@ -88,7 +88,7 @@ void display(){
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	scareScene.draw();
-  glutTimerFunc(1000, timer->decTime, 0);
+	glutTimerFunc(1000, timer.decTime, 0);
 	glFlush();
 }
 
