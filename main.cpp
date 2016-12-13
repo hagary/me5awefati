@@ -28,15 +28,26 @@ ISoundEngine* soundEngine = createIrrKlangDevice();
 long timeSinceStart; //millisecs
 int currMin;
 int currSec;
-int durMins = 2;
+int durMins = 1;
 Vector pos;
 bool isTimeUp;
+
+//Score
+int score;
+
+int game_mode;
+bool gameEnded;
+#define SELECT_DOOR 0
+#define SCARE_ROOM  1
+#define GAME_OVER 2
 
 void initTimer() {
 	durMins = durationMins;
 	currMin = durMins;
 	currSec = 0;
-	pos.x = -30; pos.y = roomSize / 2 - 10; pos.z = -roomSize / 2 + 10;
+	pos.x = 0; pos.y = 0; pos.z = roomSize - 10;
+	timeSinceStart = glutGet(GLUT_ELAPSED_TIME);
+	glutTimerFunc(1000, decTime, 0);
 }
 
 void decTime(int value) {
@@ -55,57 +66,97 @@ void decTime(int value) {
 		currSec--;
 	glutTimerFunc(1000, decTime, 0);
 }
+void drawText(string text, float x, float y) {
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0.0, windowWidth, 0.0, windowHeight);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glRasterPos2i(x, y);
+	std::string s = text;
+	void * font = GLUT_BITMAP_TIMES_ROMAN_24;
 
+	for (std::string::iterator i = s.begin(); i != s.end(); ++i)
+	{
+		char c = *i;
+		glutBitmapCharacter(font, c);
+	}
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glEnable(GL_TEXTURE_2D);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glutSwapBuffers();
+
+}
 void drawTime() {
 	std::string secs = std::to_string(currSec);
 	std::string mins = std::to_string(currMin);
 	std::string time = mins + " : " + secs;
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glPushMatrix();
-	glRasterPos3f(pos.x, pos.y, pos.z);
-	for (unsigned int i = 0; i<time.length(); i++)
-	{
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, time[i]);
-	}
-	glPopMatrix();
+	drawText(time, 900, 650);
+}
+void drawScore() {
+	std::string sc = "SCORE  "+ std::to_string(score);
+	drawText(sc, 700, 650);
 }
 
-//int which_room = 0;
-int game_mode;
-#define SELECT_DOOR 0;
-#define SCARE_ROOM  1;
 
 void initGame(){
     //initialize game objects
     game_mode = SELECT_DOOR;
+	score = 2000;
 }
 
-void playSound(string filename, bool loop) {
+void playSound(string filename, bool loop, float volume) {
 	string path = "assets/sounds/" + filename + ".mp3";
-	soundEngine->play2D(path.c_str(), loop);
+	ISound *s = soundEngine->play2D(path.c_str(), loop, false, true, ESM_AUTO_DETECT, false);
+	s->setVolume(volume);
 }
 
 void key(unsigned char k, int x,int y){
-	if (game_mode == 0) {
+	if (game_mode == SELECT_DOOR) {
 		if (k == '1') {
 			//whichRoom = 1;
-			game_mode = 1;
+			game_mode = SCARE_ROOM;
+			initTimer();
+			playSound("tefl-adamy", false, 1);
+			gameEnded = false;
+			scareScene.kid.reset();
 			glutPostRedisplay();
 		}
 		if (k == '2') {
 			//whichRoom = 2;
-			game_mode = 1;
+			game_mode = SCARE_ROOM;
+			initTimer();
+			playSound("tefl-adamy", false, 1);
+			gameEnded = false;
+			scareScene.kid.reset();
 			glutPostRedisplay();
 		}
 		if (k == '3') {
 			//whichRoom = 3;
-			game_mode = 1;
+			game_mode = SCARE_ROOM;
+			initTimer();
+			playSound("tefl-adamy", false, 1);
+			gameEnded = false;
+			scareScene.kid.reset();
 			glutPostRedisplay();
 		}
-		initTimer();
+
 	}
 }
+
+void endGame(int val) {
+	game_mode = 0;
+}
 void spe(int k, int x,int y){
+
+	Vector currPoint = scareScene.monster.centerPoint;
 	switch (k){
 		case GLUT_KEY_RIGHT :
 			scareScene.monster.moveR();
@@ -124,20 +175,29 @@ void spe(int k, int x,int y){
 	if (scareScene.isToyCollision())
 	{
 		scareScene.monster.reset();
-		playSound("7alet-taware2", false);
+		playSound("7alet-taware2", false, 1);
+		score -= 100;
+		//TODO if score <=0
+	}
+	else if (scareScene.isTargetCollision() && !gameEnded)
+	{
+		playSound("sree5", false, 1);
+		scareScene.kid.scareKid();
+		gameEnded = true;
+		glutTimerFunc(6000, endGame,0);
 
 	}
-	else if (scareScene.isTargetCollision())
-	{
-		soundEngine->stopAllSounds();
-		playSound("sree5", false);
-	}
+	//else if (scareScene.isObjectCollision()) {
+
+	//	// Raga3o tany
+	//	scareScene.monster.centerPoint = currPoint;
+	//};
 
 	glutPostRedisplay();
 }
 void passM(int mouseX,int mouseY){
 
-	if (game_mode == 0) return;
+	if (game_mode == SELECT_DOOR) return;
 	mouseX = mouseX - windowWidth/2;
 	mouseY = windowHeight - mouseY + windowHeight / 2;
 	int changeX = mouseX - oldMouse.x;
@@ -152,22 +212,9 @@ void passM(int mouseX,int mouseY){
 	glutPostRedisplay();
 }
 
-void drawText(string text, float x, float y) {
-
-	glPushMatrix();
-
-	glNormal3d(0, 0, -1);
-	glColor3d(1, 1, 1);
-	glRasterPos3f(x, y, 6);
-	for (unsigned int i = 0; i< text.length(); i++)
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, text[i]);
-
-	glPopMatrix();
-
-}
 
 void anim(){
-	if (game_mode == 1) {
+	if (game_mode == SCARE_ROOM) {
 		if (isTimeUp)
 		{
 			isTimeUp = false;
@@ -178,22 +225,23 @@ void anim(){
 }
 
 void display(){
-
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	if (game_mode == SCARE_ROOM) {
+		drawTime();
+		drawScore();
+	}
+	glPushMatrix();
 	cam.setUp();
 	light.setUp();
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-	if (game_mode == 0) {
+	if (game_mode == SELECT_DOOR) {
 		firstScene.draw();
 	}
 	else {
 		scareScene.draw();
-		drawTime();
-		glutTimerFunc(1000, decTime, 0);
 	}
-
+	glPopMatrix();
 	glFlush();
+	glutSwapBuffers();
 }
 
 void main(int argc, char** argv){
@@ -225,7 +273,7 @@ void main(int argc, char** argv){
 	firstScene.loadImages();
 	scareScene.loadImages();
 
-	playSound("main", true);
+	playSound("main", true, 0.2);
     glutMainLoop();
 
 }

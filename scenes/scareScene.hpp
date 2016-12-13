@@ -34,5 +34,6 @@ public:
     void draw();
 	bool isToyCollision();
 	bool isTargetCollision();
+	bool isObjectCollision();
 };
 #endif /* scareScene_hpp */
