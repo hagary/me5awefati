@@ -24,6 +24,7 @@ const double zFar = roomSize + 50;
 
 // Light
 const double ambient = 0.2;
+const double ambient_mainScene = 0.09;
 
 // Toys
 #define NUM_TOYS 3

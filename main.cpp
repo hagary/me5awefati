@@ -5,24 +5,27 @@
 //  Created by Hagar Yasser Omar on 12/10/16.
 //  Copyright © 2016 Hagar Yasser Omar. All rights reserved.
 //
-#include <irrKlang\irrKlang.h>
-using namespace irrklang;
-#pragma comment(lib, "irrKlang.lib")
 
+//#include <irrKlang\irrKlang.h>
+//using namespace irrklang;
+//#pragma comment(lib, "irrKlang.lib")
+
+#include "scenes\mainScene.hpp"
 #include "scenes\scareScene.hpp"
 #include "controllers\camera.hpp"
 #include "controllers\lights.hpp"
 #include "timer.hpp"
 
 // Game Variables
+mainScene firstScene;
 ScareScene scareScene;
 Camera cam;
 Lights light;
 Timer timer;
 Vector oldMouse;
-ISoundEngine* soundEngine = createIrrKlangDevice();
+//ISoundEngine* soundEngine = createIrrKlangDevice();
 
-
+//int which_room = 0;
 int game_mode;
 #define SELECT_DOOR 0;
 #define SCARE_ROOM  1;
@@ -34,10 +37,25 @@ void initGame(){
 
 void playSound(string filename, bool loop) {
 	string path = "assets/sounds/" + filename + ".mp3";
-	soundEngine->play2D(path.c_str(), loop);
+	//soundEngine->play2D(path.c_str(), loop);
 }
 
 void key(unsigned char k, int x,int y){
+	if (k == '1') {
+		//whichRoom = 1;
+		game_mode = 1;
+		glutPostRedisplay();
+	}
+	if (k == '2') {
+		//whichRoom = 2;
+		game_mode = 1;
+		glutPostRedisplay();
+	}
+	if (k == '3') {
+		//whichRoom = 3;
+		game_mode = 1;
+		glutPostRedisplay();
+	}
 }
 void spe(int k, int x,int y){
 	switch (k){
@@ -87,7 +105,14 @@ void display(){
 	light.setUp();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	scareScene.draw();
+	
+	if (game_mode == 0) {
+		firstScene.draw();
+	}
+	else {
+		scareScene.draw();
+	}
+
 	glutTimerFunc(1000, timer.decTime, 0);
 	glFlush();
 }
