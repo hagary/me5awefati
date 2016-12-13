@@ -5,6 +5,10 @@
 //  Created by Hagar Yasser Omar on 12/10/16.
 //  Copyright © 2016 Hagar Yasser Omar. All rights reserved.
 //
+#include <irrKlang\irrKlang.h>
+using namespace irrklang;
+#pragma comment(lib, "irrKlang.lib")
+
 #include "scenes\scareScene.hpp"
 #include "controllers\camera.hpp"
 #include "controllers\lights.hpp"
@@ -15,6 +19,8 @@ Camera cam;
 Lights light;
 
 Vector oldMouse;
+ISoundEngine* soundEngine = createIrrKlangDevice();
+
 
 int game_mode;
 #define SELECT_DOOR 0;
@@ -24,6 +30,12 @@ void initGame(){
     //initialize game objects
     game_mode = SELECT_DOOR;
 }
+
+void playSound(string filename, bool loop) {
+	string path = "assets/sounds/" + filename + ".mp3";
+	soundEngine->play2D(path.c_str(), loop);
+}
+
 void key(unsigned char k, int x,int y){
 }
 void spe(int k, int x,int y){
@@ -45,6 +57,7 @@ void spe(int k, int x,int y){
 	if (scareScene.isCollision())
 	{
 		scareScene.monster.reset();
+		playSound("7alet-taware2", false);
 	}
 	glutPostRedisplay();
 }
@@ -104,6 +117,8 @@ void main(int argc, char** argv){
 	glShadeModel(GL_SMOOTH);
 
 	scareScene.loadImages();
+
+	playSound("main", true);
     glutMainLoop();
 
 }
