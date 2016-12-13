@@ -27,7 +27,7 @@ const double ambient = 0.2;
 const double ambient_mainScene = 0.09;
 
 // Toys
-#define NUM_TOYS 3
+#define NUM_TOYS 4
 
 //Timer
 const int durationMins = 2;
