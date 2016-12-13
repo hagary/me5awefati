@@ -8,12 +8,13 @@
 #include "scenes\scareScene.hpp"
 #include "controllers\camera.hpp"
 #include "controllers\lights.hpp"
+#include "timer.hpp"
 
 // Game Variables
 ScareScene scareScene;
 Camera cam;
 Lights light;
-
+Timer timer;
 Vector oldMouse;
 
 int game_mode;
@@ -74,12 +75,13 @@ void display(){
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	scareScene.draw();
+  glutTimerFunc(1000, timer->decTime, 0);
 	glFlush();
 }
 
 void main(int argc, char** argv){
 	initGame();
-    
+
     //GLUT methods
 	glutInit(&argc, argv);
 	glutInitWindowSize(windowWidth, windowHeight);

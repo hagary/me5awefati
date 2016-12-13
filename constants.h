@@ -28,4 +28,7 @@ const double ambient = 0.2;
 // Toys
 #define NUM_TOYS 3
 
+//Timer
+const int durationMins = 2;
+
 #endif
